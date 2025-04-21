@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter List</title>
+    <link rel="stylesheet" href="{% static 'cordinatorlist.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Coordinator List</h1>
+            <p>View registered Coordinator for the digital election</p>
+        </header>
+        <section cla ss="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>Name</th>
+                        <th>email</th>
+                        <th>number</th>
+                        <th>category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for i in obj%}
+                    <tr>
+                        
+                        <td>{{i.name}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.number}}</td>
+                        <td>{{i.category}}</td>
+                        
+                    </tr>
+                    {%endfor%}
+                   
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

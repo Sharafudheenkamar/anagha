@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votte - Voting Made Easy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static '/images/Votte.png' %}" >
+</head>
+<body>
+    <script src="{% static 'index.js' %}"></script>
+    <div class="marginbox">
+    <div class="navbox">
+        <div class="nav-items">
+            <h1 class="logo-text">Vott<span class="red-e">e</span></h1>
+            <ul class="unlist">
+                <!-- <li class="list"><a href="#">Home</a></li> -->
+                <!-- <li class="list"><a href="#">FAQ</a></li>
+                <li class="list"><a href="#">Contact</a></li> -->
+            </ul>
+            <button class="sign-up"><a href="SignUp">sign up</a></button>
+        </div>
+    </div>
+    <div class="head-text">
+        <h1>Your Vote Counts,<br><span class="center-line">Make It Happen Online.</span></h1>
+    </div>    
+        <p class="para1">Votte makes voting easy fare and secure.</p>
+        <div class="userBtn">
+            <!-- <button class="coordinator" onclick=""><a href="SignUp">Signup</a><button> -->
+                <a href="/MainSign/"><button class="voter"  >Signin</button></a>
+        </div>
+        <div class="device-img">
+            <img class="mac" src="{% static 'images/Macbook_Air_Mockup_1 1.png' %}" alt="mac-book">
+            <img class="iPhone" src="{% static './images/Free_iPhone_11_Pro_Mockup_4 1.png' %}" alt="iPhone">
+        </div>
+    </div>
+        <div class="secdiv">
+            <div class="secondtxtbox">
+                <h3 class="secondhead">Let's Mark Your<br>vote.</h3>
+                <p class="secondpara">Follow these steps to start voting.</p>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1.</div>
+                        <p class="step-text">First of all create an account :</p>
+            
+                    </div>
+                    <p class="step-text-2">Choose your domain based on who you are whether<br>
+                        an election organizer or voter. After choosing create <br>
+                        your account by providing basic details,</p>
+
+
+                    <div class="step">
+                        <div class="step-number">2.</div>
+                        <p class="step-text">Verify your identity :</p>
+                    </div>
+                    <p class="step-text-2">After creating your account, verify your email or mobile number through<br>
+                        an OTP or confirmation link to secure your identity. Election coordinators<br>
+                        will require additional verification from the admin.</p>
+
+
+                    <div class="step">
+                        <div class="step-number">3.</div>
+                        <p class="step-text">Start voting or managing.</p>
+                    </div>
+                    <p class="step-text-2">Voters can now browse the candidate list and cast their votes. Election coordinators<br>
+                        can upload candidate details, manage voter lists, and monitor the voting process.</p>
+                </div>
+            </div>
+            <div class="iphone-container">
+                <img src="{% static './images/Free_iPhone_11_Pro_Mockup_4 2.png' %}" class="iphone" alt="iPhone mockup">
+            </div>
+        </div>
+        </div>
+        <div class="thirdiv">
+            <h1 class="thirdiv-head">Features.</h1><br>
+            <ul class="list-real">
+                <li class="listr">Real - Time result</li>
+                <li class="listr">Secure Authentication</li>
+                <li class="listr">Audit Trail and Logging</li>
+                <li class="listr">Offline Backup</li>
+                <li class="listr">Encryption and Data Security</li>
+            </ul>
+            <div class="question">
+                <p class="question-sub">FAQ'S</p><br>
+                <h1 class="question-head">Frequently <br>Asked <br>Question.</h1>
+                <p class="question-sub">Ask any questions</p><br>
+                <h4 ><a class="question-link" href="#">info@votte.com</a></h4>
+                <button class="question-sign"><a href="/MainSign/">sign up</a></button>
+            </div>
+            <div class="doubts">
+                <ul class="doubts-sec">
+                    <li><input type="radio" name="doubts-sec" id="first">
+                    <label for="first">How do I creat an account?</label>
+                <div class="doubt-desc">
+                    <p>You can create an account by clicking the "Sign Up"
+                        button on the homepage. Select whether you are a
+                        voter or an election coordinator and follow the
+                        instructions to register.</p><hr>
+                </div>
+                </li>
+                    <li><input type="radio" name="doubts-sec" id="second">
+                    <label for="second">What if I forgot my password?</label>
+                <div class="doubt-desc">
+                    <p>If you forgot your password, click on the "Forgot Password" link on the login page, enter your account email, and check your inbox for a reset link. Follow the instructions to create a new password, then return to the login page to sign in. If you don’t receive the reset email, check your spam folder or contact our support team for assistance..</p><hr>
+                </div>
+                    <li><input type="radio" name="doubts-sec" id="third">
+                    <label for="third">How do I verify my account?</label>
+                <div class="doubt-desc">
+                    <p>If you registered as a voter, you’ll need to wait for approval from an election coordinator to verify your profile. Once approved, you’ll be notified, and you can start using the site. If you registered as an election coordinator, your account will need to be verified by an admin. After admin approval, you’ll receive a notification, allowing you to access coordinator-specific features. Please allow some time for approvals, and contact support if you experience any delays.<p><hr>
+                </div>
+                </li>
+                    <li><input type="radio" name="doubts-sec" id="fourth">
+                    <label for="fourth">How do I vote?</label>
+                <div class="doubt-desc">
+                    <p>To cast your vote, approach a coordinator’s computer where the election coordinator will open the voter window for you. Once the coordinator approves, you’ll be able to mark your vote. Follow the on-screen instructions carefully to ensure your vote is accurately recorded. Please remember to maintain fair voting practices and follow the coordinator’s guidance throughout the process..</p><hr>
+                </div>
+                </li>
+                </ul>
+                
+
+            </div>
+        </div>
+        <div class="whyBox">
+            <div class="whyRsnBox">
+                <div class="secure">
+                    <div class="text">
+                        <h2 class="Rstxt">Secure</h2>
+                        <p class="RsP">Your Safety, Our Priority</p>
+                    </div>
+                    <div class="num">
+                        <p class="number">100%</p>
+                    </div>
+                </div>
+               
+
+
+
+                <div class="reliable">
+                    <div class="text">
+                        <h2 class="Rstxt">Reliable</h2>
+                        <p class="RsP">Dependable and Consistent.</p>
+                    </div>
+                    <div class="num">
+                        <p class="number">100%</p>
+                    </div>
+                </div>
+
+
+
+
+                <div class="fast">
+                    <div class="text">
+                        <h2 class="Rstxt">Fast</h2>
+                        <p class="RsP">Get Things Done in No Time</p>
+                    </div>
+                    <div class="num">
+                        <p class="number">100%</p>
+                    </div>
+                </div>
+
+
+
+                
+            </div>
+            <div class="textwhy">
+                <h2 class="whytxt">Why Choose <br>Us?</h2>
+                <button class="sign-up"><a href="/MainSign/">Sign Up</a></button>
+            </div>
+        </div>
+        <div class="scrollbox">
+            <h1 class="scroll-txt">Scroll to top.</h1>
+            <h1 class="scroll-txt-1">Scroll to top.</h1>
+            
+        </div>
+<div class="footer-main">
+    <div class="footer-left">
+        <div class="logo-text-footer">
+            <h1 class="h1-footer">Vott<span>e</span></h1>
+            <p class="p-footer">Voting Made Easy.</p>
+        </div>
+        <div class="feedback">
+        <div class="feedback-outer">
+            <div class="feedback-inner">
+                <div class="feedback-txt">
+                    <p class="feedback-p">Share your feedback.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="footer-right">
+        <li class="head-li">Quick Links</li>
+        <ul class="footer-ul">
+                
+            <li class="footer-li"><a href="#">Home</a></li>
+            <li class="footer-li"><a href="#">About</a></li>
+            <li class="footer-li"><a href="#">Contact</a></li>
+        </ul>
+
+        <li class="head-li-1">Company</li>
+        <ul class="footer-ul">
+                
+            <li class="footer-li"><a href="#">About</a></li>
+            <li class="footer-li"><a href="#">Privacy Policy</a></li>
+            <li class="footer-li"><a href="#">Terms Of Services</a></li>
+        </ul>
+
+        <li class="head-li">Quick Links</li>
+        <ul class="footer-ul">
+                
+            <li class="footer-li"><a href="#">Home</a></li>
+            <li class="footer-li"><a href="#">Home</a></li>
+            <li class="footer-li"><a href="#">Home</a></li>
+        </ul>
+    </div>
+  
+</div>
+<p class="copyright">Copyright &copy; 2024 - 25 votte.All Rights Reserved.</p>
+      
+</body>
+</html>

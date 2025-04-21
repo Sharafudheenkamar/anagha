@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter List</title>
+    <link rel="stylesheet" href="{% static 'managecandidate.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Candidate List</h1>
+            <p>Edit or Delete registered Candidates for the digital election</p>
+        </header>
+        <section class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                      
+                        <th>Name</th>
+                        <th>Post</th>
+                        <th>Party</th>
+                        <th>Candidate Id</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                        {%for i in val%}
+                        <tr>
+                            <td>{{i.name}}</td>
+                            <td>{{i.post}}</td>
+                            <td>{{i.party}}</td>
+                            <td>{{i.candidate_id}}</td>
+                            <td>
+                              <button class="btn approve"><a href="/Edit_candidate/{{i.id}}/">Edit</a></button>
+                                <button class="btn reject"><a href="/DeleteCandidate/{{i.id}}/"  onclick="return confirm('are you sure')">Delete</a></button>
+                            </td>
+                        </tr>
+                       
+                       
+                        {%endfor%}
+                    </tr>
+                    
+                </tbody> 
+            </table>
+        </section>
+    </div>
+</body>
+</html

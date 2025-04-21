@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter List</title>
+    <link rel="stylesheet" href="{% static 'voterList.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Voter List</h1>
+            <p>View registered voters for the digital election</p>
+        </header>
+        <section class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Voter id</th>
+                        <th>Name</th>
+                        <th>Photo</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for i in obj%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.voter_id}}</td>
+                        <td>{{i.name}}</td>
+                        <td><img src="{{i.known_face_encoding.url}}" alt="" height="30px" width="30px"></td>
+                        <td>{{i.email}}</td>
+                        <td><a href="/delete_voter/{{i.id}}"><button>Delete</button></a></td>
+                    </tr>
+                    {%endfor%}
+                    <button class="dashboard-btn results-btn"><a href="/logout">Logout</a></button>
+                   
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

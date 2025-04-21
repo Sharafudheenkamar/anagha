@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #ffffff;
+  color: #333;
+  text-align: center;
+  padding: 60px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 0.5s;
+}
+
+header p {
+  font-size: 18px;
+  color: #636366;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 1s;
+}
+
+main {
+  padding: 30px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.post-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 1.5s;
+}
+
+.post-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.candidate-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.candidate {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.candidate:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.candidate h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px; /* Added margin to separate text and button */
+}
+
+.candidate p {
+  font-size: 16px;
+  color: #636366;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+
+.vote-btn {
+  background-color: #0b38ff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px; /* Added margin to provide space between the text and button */
+}
+
+.vote-btn input {
+  display: none;
+}
+
+.vote-btn:hover {
+  background-color: #0051a8;
+  transform: scale(1.05);
+  animation: pulse 0.6s infinite;
+}
+
+.submit-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.submit-checkbox {
+  display: none;
+}
+
+.submit-btn {
+  background-color: #0b38ff;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  
+}
+
+.submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: #f1f1f3;
+  color: #636366;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  /* position: fixed; */
+  width: 100%;
+  bottom: 0;
+  animation: fadeIn 1s ease-out forwards 2s;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.submit-checkbox:checked ~ .submit-section .submit-btn {
+  opacity: 1;
+  pointer-events: all;
+}

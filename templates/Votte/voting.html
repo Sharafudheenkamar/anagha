@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votte - User</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'voting.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Votte Voting System</h1>
+        <p>Vote for your preferred candidates!</p>
+    </header>
+
+    <main>
+        <section class="posts">
+            
+            <div class="post-card">
+                <h2>Candidates</h2>
+                <div class="candidate-list">
+                    {% for i in can_inst %}
+                    <form action="/Voting/" method="post">
+                        {% csrf_token %}
+                    <div class="candidate">
+                        <h3>{{i.name}}</h3>
+                        <p>{{i.party}}<input type="hidden" name="candidate_id" value="{{i.id}}"></p>
+                        <label class="vote-btn">
+                            <input type="submit" name="chairman" class="vote-input">
+                            Vote
+                        </label>
+                    </div>
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - 25 Votte. All rights reserved.</p>
+    </footer>
+</body>
+</html>

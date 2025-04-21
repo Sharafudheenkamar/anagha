@@ -1,0 +1,211 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+    <title>Result</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'result.css' %}">
+    <title>Votte - Result
+        +
+    </title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <ol>
+                <li><h2>LIVE RESULT</h2></li>
+                <li><h4>{{current_time}}</h4></li>
+            </ol>
+        </div>
+        <h2 class="side">GENERAL SEATS</h2>
+        
+        <div class="genarals">
+            <div class="left">
+                {%for i in obj %}
+                <div class="seat">
+                    <ol>
+                        <li>
+                            
+                            <h2>{{i.name}}</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">{{i.vote_count}}</h4>
+                        </li>
+                </div>
+                {%endfor%}
+                <!-- <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>VICE CHAIR PERSON</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>SECRATARY</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>JOINT SECRATARY</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+            </div>
+            <div class="right">
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>UUC</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>STUDENT EDITOR</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>GENERAL CAPTION</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>FINEARTS SECRATARY</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
+        <h2 class="side">OTHER SEATS</h2>
+        <div class="others">
+            
+            <div class="left">
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>PG REP</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>THIRD YEAR REP</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>SECOND YEAR REP</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>FIRST YEAR REP</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+            </div>
+            <div class="right">
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>COMPUTER DEPARTMENT HEAD</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>COMMERCE DEPARTMENT HEAD</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div>
+                <div class="seat">
+                    <ol>
+                        <li>
+                            <h3>ENGLISH DEPARTMENT HEAD</h3>
+                            <h2>NAME OF CANDIDATE</h2>
+                        </li>
+                        <li>
+                            <h4 class="count">+count</h4>
+                        </li>
+                </div> -->
+            </div>
+        </div>
+        <div class="align">
+            <div class="bottomnav">
+                <div class="navbox">
+                    <a href="/Coordinator/">Home</a>
+                    <!-- <a href="/MyAccount">My Account</a> -->
+                    <a href="/Addcand">Candidates</a>
+                    <!-- <a href="/Voting/">Voting Panel</a> -->
+                    <a href="/VoterList">Voters</a>
+                    <a href="/Result">Result</a>
+                    <a href="/logout">Logout</a>
+   
+                </div>
+            </div>
+            </div>
+</body>
+
+</html>

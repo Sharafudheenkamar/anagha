@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'verified.css' %}" />
+    <title>Voter sign-up</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="left-card-1">
+        <div class="head-text">
+          <h1 class="h-1">OTP Verified.</h1>
+          <p class="p-1">Verify your Authentication using Facial Recognition. </p>
+        </div>
+        <button class="createBtn" onclick="openCamera()"><a href="verified.html">Face Recognition</a></button>
+      </div>
+<!-- Camera video element -->
+<video id="camera-video" width="160" height="120"  autoplay></video>
+
+<!-- Close icon for the camera video -->
+<div id="close-icon" onclick="closeCamera()">❌</div>
+
+
+
+    <script>
+  var cameraStream = null;
+
+function openCamera() {
+    // Access the camera using getUserMedia API
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+            // Save the stream for later use (to close the camera)
+            cameraStream = stream;
+
+            // Display the camera video
+            var video = document.getElementById("camera-video");
+            video.style.display = "block";
+            video.srcObject = stream;
+
+            // Show the close icon
+            var closeIcon = document.getElementById("close-icon");
+            closeIcon.style.display = "block";
+        })
+        .catch(function (error) {
+            console.error("Error accessing the camera:", error);
+        });
+}
+
+function closeCamera() {
+    // Stop the camera stream
+    if (cameraStream) {
+        var tracks = cameraStream.getTracks();
+        tracks.forEach(function (track) {
+            track.stop();
+        });
+    }
+
+    // Hide the camera video and close icon
+    var video = document.getElementById("camera-video");
+    video.style.display = "none";
+
+    var closeIcon = document.getElementById("close-icon");
+    closeIcon.style.display = "none";
+}
+
+
+
+       function sendMessage() {
+    var userInput = document.getElementById("user-input");
+    var message = userInput.value.trim();
+
+    if (message !== "") {
+        var chatBody = document.getElementById("chat-body");
+        var newMessage = document.createElement("div");
+        newMessage.className = "message";
+        newMessage.innerHTML = "<p class='user-message'>" + message + "</p>";
+        chatBody.appendChild(newMessage);
+
+        // Simulate bot response (you can replace this with actual API calls)
+        setTimeout(function () {
+            var botMessage = document.createElement("div");
+            botMessage.className = "message";
+            botMessage.innerHTML = "<p class='bot-message'>Hi there! How can I help you?</p>";
+            chatBody.appendChild(botMessage);
+            chatBody.scrollTop = chatBody.scrollHeight; // Auto-scroll to the latest message
+        }, 500);
+
+        userInput.value = "";
+    }
+}
+
+
+    </script>
+
+    
+  </body>
+</html>

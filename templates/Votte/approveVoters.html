@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter List</title>
+    <link rel="stylesheet" href="{% static 'approveVoters.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Voter List</h1>
+            <p>Approve or reject registered voters for the digital election</p>
+        </header>
+        <section class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Year</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for i in obj%}
+                    <tr>
+                        <td>{{i.login_id.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.department}}</td>
+                        <td>{{i.year}}</td>
+                        <td>
+                            <button class="btn approve">Approve</button>
+                            <button class="btn reject">Reject</button>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                   
+                    
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

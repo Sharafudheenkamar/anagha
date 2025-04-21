@@ -1,0 +1,39 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votte - user</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'cordinatorhome.css'%} ">
+</head>
+<body>
+    <div class="container">
+        <div class="border-box">
+            <div class="header-box">
+                <h1 class="h-1-txt">Oversee, Manage And<br>Make Election Happen.</h1>
+            </div>
+            <p class="para1">Election Co - ordinator</p>
+        </div>
+    </div>
+    <div class="align">
+    <div class="bottomnav">
+        <div class="navbox">
+            <a href="/Coordinator/">Home</a>
+            <!-- <a href="/MyAccount">My Account</a> -->
+            <a href="/Addcand">Candidates</a>
+            <!-- <a href="/Voting">Voting Panel</a> -->
+            <a href="/VoterList">Voters</a>
+            <a href="/Result">Result</a>
+            <a href="/logout">Logout</a>
+   
+        </div>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votte - User</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'voting.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Votte Voting System</h1>
+        <p>you have casted your vote !</p>
+    </header>
+
+    <main>
+        <section class="posts">
+            
+            <div class="post-card">
+                <h2>you have casted your vote !</h2>
+                <div class="candidate-list">
+                    <button class="dashboard-btn results-btn"><a href="/logout">Logout</a></button>
+   
+
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - 25 Votte. All rights reserved.</p>
+    </footer>
+</body>
+</html>

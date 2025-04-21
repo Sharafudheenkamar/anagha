@@ -1,0 +1,45 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votte - My Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'myac.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="border-box">
+            <div class="align-box">
+                <div class="acc-box">
+                    <h2 class="box-title">My Account</h2>
+                    <div class="info">
+                        
+                        <p><strong>Username:</strong> <span id="username">{{val.name}}</span></p>
+                        <p><strong>Email ID:</strong> <span id="email">{{val.email}}</span></p>
+                        <p><strong>Voting Status:</strong> <span id="status">{{val.voter_status}}</span></p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="align">
+        <div class="bottomnav">
+            <div class="navbox">
+                <a href="/MyAccount">Home</a>
+                <!-- <a href="myacc.html">My Account</a> -->
+                <a href="/monitor_camera/{{val.id}}">Candidates</a>
+                <a href="/logout">Logout</a>
+   
+            </div>
+        </div>
+    </div>
+</body>
+</html>

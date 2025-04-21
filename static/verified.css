@@ -1,0 +1,55 @@
+body {
+    font-family: "Lato";
+    background-color: #f0f0f2;
+    overflow: hidden;
+  }
+  
+  .main-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  .left-card-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    
+  }
+  
+  .h-1 {
+    
+    font-size: 55px;
+  }
+  
+  .p-1 {
+    margin-top: -35px;
+    font-size: 13px;
+   
+  }
+  .createBtn {
+    border: hidden;
+    width: 240px;
+    height: 50px;
+    border-radius: 55px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    font-family: "Lato";
+    font-size: 20px;
+    margin-top: 60px;
+
+  }
+  .createBtn a{
+    text-decoration: none;
+    color: white;
+  }
+  .createBtn:hover {
+    background-color: rgb(10, 10, 225);
+    cursor: pointer;
+  }
+  
+
+ 

@@ -1,0 +1,60 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'orgsignup.css' %}" />
+    <title>Voter sign-up</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="left-card-1">
+        <div class="head-text">
+          <h1 class="h-1">Hi Organizer!</h1>
+          <p class="p-1">Welcome Organizer, Create Your Account.</p>
+        </div>
+        <form class="formIn" action="" method="post">
+          {% csrf_token %}
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name" required
+          /><br /><br /><br />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address" required
+          /><br /><br /><br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password" required
+          /><br /><br /><br />
+          
+          <input type="number" name="number" placeholder="Phone Number" required/>
+
+          <br /><br /><br />
+          <button type="submit" class="createBtn">Create Account</button>
+        </form>
+        <p class="existingAc">Already have an account?<a href="/MainSign/">SignIn.</a> </p>
+      </div>
+
+      <div class="right-card-1">
+        <div class="logo-text">
+          <h1 class="logo-h1">Vott<span>e</span></h1>
+        </div>
+        <div class="logo-p">
+          <p>Voting Made</p>
+          <p class="easy">Easy.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
