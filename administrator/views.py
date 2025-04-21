@@ -946,21 +946,22 @@ class VotingAPIView(APIView):
         return Response({"candidates": list(candidates.values())}, status=status.HTTP_200_OK)
 
     def post(self, request):
+        print(request.data)
         candidate_id = request.data.get('candidate_id')
-        voter_login_id = request.session.get('loginid')
+        voter_login_id = request.data.get('voter_loginid')
         
         try:
             voter = VoterTable.objects.get(login_id__id=voter_login_id)
         except VoterTable.DoesNotExist:
-            return Response({'error': 'Voter not found!'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'message': 'Voter not found!'}, status=status.HTTP_200_OK)
 
         if voter.voter_status:
-            return Response({'error': 'You have already voted!'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'message': 'You have already voted!'}, status=status.HTTP_201_CREATED)
 
         try:
             candidate = CandidateTable.objects.get(id=candidate_id)
         except CandidateTable.DoesNotExist:
-            return Response({'error': 'Candidate not found!'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'message': 'Candidate not found!'}, status=status.HTTP_200_OK)
 
         Vote.objects.create(voter=voter, candidate=candidate)
         voter.voter_status = True
@@ -1096,29 +1097,31 @@ class VerifyOTPVoterAPIView(APIView):
 
 class MonitorCameraAPIView(APIView):
     def post(self, request, id):
-        print(request.FILES.get('image'))
-        try:
-            # Check if voter has already voted
-            vote_inst = Vote.objects.filter(voter__id=id).first()
-            if vote_inst:
-                return Response(
-                    {"error": "Voter has already voted.", "redirect_url": "/alreadyvote/"},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
+            print(request.FILES.get('image'))
+        # try:
+        #     # Check if voter has already voted
+        #     vote_inst = Vote.objects.filter(voter__id=id).first()
+        #     print(vote_inst)
+            # if vote_inst:
+            #     return Response(
+            #         # {"message": "Voter has already voted.", "redirect_url": "/alreadyvote/"},
+            #         {"message": "Voter has already voted."},
+            #         status=status.HTTP_400_BAD_REQUEST
+            #     )
 
             # Get voter
             try:
-                voter = VoterTable.objects.get(id=id)
+                voter = VoterTable.objects.get(login_id__id=id)
             except VoterTable.DoesNotExist:
                 return Response(
-                    {"error": "Voter not found."},
-                    status=status.HTTP_404_NOT_FOUND
+                    {"message": "Voter not found."},
+                    status=status.HTTP_400_BAD_REQUEST
                 )
 
             # Check if voter has a face encoding
             if not voter.known_face_encoding:
                 return Response(
-                    {"error": "No face encoding file for this voter."},
+                    {"message": "No face encoding file for this voter."},
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
@@ -1127,8 +1130,9 @@ class MonitorCameraAPIView(APIView):
                 voter_image = face_recognition.load_image_file(voter.known_face_encoding.path)
                 known_face_encodings = face_recognition.face_encodings(voter_image)
                 if len(known_face_encodings) == 0:
+                    
                     return Response(
-                        {"error": "No face detected in the stored voter image."},
+                        {"message": "No face detected in the stored voter image."},
                         status=status.HTTP_400_BAD_REQUEST
                     )
                 known_face_encoding = known_face_encodings[0]
@@ -1154,7 +1158,7 @@ class MonitorCameraAPIView(APIView):
                 image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
                 if image is None:
                     return Response(
-                        {"error": "Invalid image file."},
+                        {"message": "Invalid image file."},
                         status=status.HTTP_400_BAD_REQUEST
                     )
 
@@ -1163,7 +1167,7 @@ class MonitorCameraAPIView(APIView):
                 face_encodings = face_recognition.face_encodings(rgb_image)
                 if len(face_encodings) == 0:
                     return Response(
-                        {"error": "No face detected in the uploaded image."},
+                        {"message": "No face detected in the uploaded image."},
                         status=status.HTTP_400_BAD_REQUEST
                     )
 
@@ -1177,7 +1181,7 @@ class MonitorCameraAPIView(APIView):
                     )
                 else:
                     return Response(
-                        {"error": "Face verification failed."},
+                        {"message": "Face verification failed."},
                         status=status.HTTP_400_BAD_REQUEST
                     )
 
@@ -1187,11 +1191,11 @@ class MonitorCameraAPIView(APIView):
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR
                 )
 
-        except Exception as e:
-            return Response(
-                {"error": f"An unexpected error occurred: {str(e)}"},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
+        # except Exception as e:
+        #     return Response(
+        #         {"error": f"An unexpected error occurred: {str(e)}"},
+        #         status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        #     )
 class AlreadyVotedAPIView(APIView):
     def get(self, request):
         return Response({'message': 'You have already voted'}, status=status.HTTP_200_OK)
